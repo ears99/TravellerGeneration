@@ -50,6 +50,7 @@ void Character::enlist() {
                 if(enlistmentRoll >= 8) {
                     std::cout << "You have been enlisted into the Navy!\n";
                     _enlistedInto = services::NAVY;
+                    _rank = 0;
                     rollSurvival();
                 } else {
                     std::cout << "You have not been accepted into the Navy; roll for the draft\n";
@@ -60,6 +61,7 @@ void Character::enlist() {
                 if(enlistmentRoll >= 9) {
                     std::cout << "You have been enlisted into the Marines!\n";
                     _enlistedInto = services::MARINES;
+                    _rank = 0;
                     rollSurvival();
                 } else {
                     std::cout << "You have not been accepted into the Marines; roll for the draft\n";
@@ -70,6 +72,7 @@ void Character::enlist() {
                 if(enlistmentRoll >= 5) {
                     std::cout << "You have been enlisted into the Army!\n";
                     _enlistedInto  = services::ARMY;
+                    _rank = 0;
                     rollSurvival();
                 } else {
                     std::cout << "You have not been accepted into the Army; roll for the draft\n";
@@ -80,6 +83,7 @@ void Character::enlist() {
                 if(enlistmentRoll >= 7) {
                     std::cout << "You have been enlisted into the Scouts!\n";
                     _enlistedInto  = services::SCOUTS;
+                    _rank = 0;
                     rollSurvival();
                 } else {
                     std::cout << "You have not been accepted into the Scouts, roll for the draft\n";
@@ -90,6 +94,7 @@ void Character::enlist() {
                 if(enlistmentRoll >= 7) {
                     std::cout << "You have been enlisted into the Merchant services\n";
                     _enlistedInto  = services::MERCHANTS;
+                    _rank = 0;
                     rollSurvival();
                 } else {
                     std::cout << "You have not been accepted into the Merchant services; roll for the draft\n";
@@ -100,6 +105,7 @@ void Character::enlist() {
                 if(enlistmentRoll >= 3) {
                     std::cout << "You have been enlisted into other services\n";
                     _enlistedInto  = services::OTHER;
+                    _rank = 0;
                     rollSurvival();
                 } else {
                     std::cout << "You have not been accepted into other services; roll for the draft\n";
@@ -126,36 +132,42 @@ void Character::rollDraft() {
         case 1:
             std::cout << "You have been drafted into the Navy\n";
             _enlistedInto  = services::NAVY;
+            _rank = 0;
             rollSurvival();
         break;
 
         case 2:
             std::cout << "You have been drafted into the Marines\n";
             _enlistedInto  = services::MARINES;
+            _rank = 0;
             rollSurvival();
         break;
 
         case 3:
             std::cout << "You have been drafted into the Army\n";
             _enlistedInto  = services::ARMY;
+            _rank = 0;
             rollSurvival();
         break;
 
         case 4:
             std::cout << "You have been drafted into the Scouts\n";
             _enlistedInto  = services::SCOUTS;
+            _rank = 0;
             rollSurvival();
         break;
 
         case 5:
             std::cout << "You have been drafted into the Merchants\n";
             _enlistedInto  = services::MERCHANTS;
+            _rank = 0;
             rollSurvival();
         break;
 
         case 6:
             std::cout << "You have been drafted into other services\n";
             _enlistedInto  = services::OTHER;
+            _rank = 0;
             rollSurvival();
         break;
     }
@@ -174,12 +186,13 @@ void Character::rollSurvival() {
 
                 std::cout << "Age: " << _age << std::endl;
                 std::cout << "Term: " << _term << std::endl;
-                reEnlist();
+                if(_rank == 1) { attemptCom(); } else if(_rank > 1){ attemptPro(); } else { reEnlist(); }
+
             } else {
                 std::cout << "You have been injured in the line of duty!\n";
                 std::cout << "Age: " << _age << std::endl;
                 std::cout << "Term: " << _term - 0.5f << std::endl;
-                reEnlist();
+                if(_rank == 1) { attemptCom(); } else if(_rank > 1){ attemptPro(); } else { reEnlist(); }
             }
         break;
 
@@ -188,12 +201,13 @@ void Character::rollSurvival() {
                 std::cout << "You have survived your term without incident\n";
                 std::cout << "Age: " << _age << std::endl;
                 std::cout << "Term: " << _term << std::endl;
-                reEnlist();
+                if(_rank == 1) { attemptCom(); } else if(_rank > 1){ attemptPro(); } else { reEnlist(); }
+
             } else {
                 std::cout << "You have been injured in the line of duty!\n";
                 std::cout << "Age: " << _age << std::endl;
                 std::cout << "Term: " << _term - 0.5f << std::endl;
-                reEnlist();
+                if(_rank == 1) { attemptCom(); } else if(_rank > 1){ attemptPro(); } else { reEnlist(); }
             }
         break;
 
@@ -202,12 +216,13 @@ void Character::rollSurvival() {
                 std::cout << "You have survived your term without incident\n";
                 std::cout << "Age: " << _age << std::endl;
                 std::cout << "Term: " << _term << std::endl;
-                reEnlist();
+                if(_rank == 1) { attemptCom(); } else if(_rank > 1){ attemptPro(); } else { reEnlist(); }
+
             } else {
                 std::cout << "You have been injured in the line of duty!\n";
                 std::cout << "Age: " << _age << std::endl;
                 std::cout << "Term: " << _term - 0.5f<< std::endl;
-                reEnlist();
+                if(_rank == 1) { attemptCom(); } else if(_rank > 1){ attemptPro(); } else { reEnlist(); }
             }
         break;
 
@@ -216,12 +231,13 @@ void Character::rollSurvival() {
                 std::cout << "You have survived your term without incident\n";
                 std::cout << "Age: " << _age << std::endl;
                 std::cout << "Term: " << _term << std::endl;
-                reEnlist();
+                if(_rank == 1) { attemptCom(); } else if(_rank > 1){ attemptPro(); } else { reEnlist(); }
+
             } else {
                 std::cout << "You have been injured in the line of duty!\n";
                 std::cout << "Age: " << _age << std::endl;
                 std::cout << "Term: " << _term - 0.5f << std::endl;
-                reEnlist();
+                if(_rank == 1) { attemptCom(); } else if(_rank > 1){ attemptPro(); } else { reEnlist(); }
             }
         break;
 
@@ -230,12 +246,13 @@ void Character::rollSurvival() {
                 std::cout << "You have survived your term without incident\n";
                 std::cout << "Age: " << _age << std::endl;
                 std::cout << "Term: " << _term << std::endl;
-                reEnlist();
+                if(_rank == 1) { attemptCom(); } else if(_rank > 1){ attemptPro(); } else { reEnlist(); }
+
             } else {
                 std::cout << "You have been injured in the line of duty!\n";
                 std::cout << "Age: " << _age << std::endl;
                 std::cout << "Term: " << _term - 0.5f << std::endl;
-                reEnlist();
+                if(_rank == 1) { attemptCom(); } else if(_rank > 1){ attemptPro(); } else { reEnlist(); }
             }
         break;
 
@@ -244,23 +261,164 @@ void Character::rollSurvival() {
                 std::cout << "You have survived your term without incident\n";
                 std::cout << "Age: " << _age << std::endl;
                 std::cout << "Term: " << _term << std::endl;
-                reEnlist();
+                if(_rank == 1) { attemptCom(); } else if(_rank > 1){ attemptPro(); } else { reEnlist(); }
+
             } else {
                 std::cout << "You have been injured in the line of duty!\n";
                 std::cout << "Age: " << _age << std::endl;
                 std::cout << "Term: " << _term - 0.5f << std::endl;
-                reEnlist();
-            }
+                if(_rank == 1) { attemptCom(); } else if(_rank > 1){ attemptPro(); } else { reEnlist(); }
+        }
         break;
     }
 }
 
 void Character::attemptCom() {
+    int commissionRoll = twoD6(e);
 
+    if(_rank == 0) {
+        switch(_enlistedInto) {
+            case NAVY:
+                if(commissionRoll >= 10) {
+                    std::cout << "Your application for a commission was accepted!\n";
+                    std::cout << "You are now an Ensign!\n";
+                    _rank = 1;
+                    reEnlist();
+                } else {
+                    std::cout << "Your application for a commission was rejected!\n";
+                    reEnlist();
+                }
+            break;
+
+            case MARINES:
+                if(commissionRoll >= 9) {
+                    std::cout << "Your application for a commission was accepted!\n";
+                    std::cout << "You are now a Lieutenant!\n";
+                    _rank = 1;
+                    reEnlist();
+                } else {
+                    std::cout << "Your application for a commission was rejected!\n";
+                    reEnlist();
+                }
+            break;
+
+            case ARMY:
+                if(commissionRoll >= 5) {
+                    std::cout << "Your application for a commission was accepted!\n";
+                    std::cout << "You are now a Lieutenant!\n";
+                    _rank = 1;
+                    reEnlist();
+                } else {
+                    std::cout << "Your application for a commission was rejected!\n";
+                    reEnlist();
+                }
+            break;
+
+            case MERCHANTS:
+                if(commissionRoll >= 4) {
+                    std::cout << "Your application for a commission was accepted!\n";
+                    std::cout << "You are now a 4th Officer!\n";
+                    _rank = 1;
+                    reEnlist();
+                } else {
+                    std::cout << "Your application for a commission was rejected!\n";
+                    reEnlist();
+                }
+            break;
+        }
+    } else if(_rank >= 1) {
+        attemptPro();
+    }
 }
 
 void Character::attemptPro() {
-
+    int promotionRoll = twoD6(e);
+    switch(_enlistedInto) {
+        case NAVY:
+            if(promotionRoll >= 8 && _rank == 1) {
+            std::cout << "You are now a Lieutenant!\n";
+            _rank = 2;
+            reEnlist();
+            } else if(promotionRoll >= 8 && _rank == 2) {
+            std::cout << "You are now a Lieutenant Commander!\n";
+            _rank = 3;
+            reEnlist();
+            } else if(promotionRoll >= 8 && _rank == 3) {
+            std::cout << "You are now a Commander!\n";
+            _rank = 4;
+            reEnlist();
+            } else if(promotionRoll >= 8 && _rank == 4) {
+            std::cout << "You are now a Captain!\n";
+            _rank = 5;
+            reEnlist();
+            } else if(promotionRoll >= 8 && _rank == 5) {
+            std::cout << "You are now an Admiral!\n";
+            _rank = 6; //final rank for the Navy
+            }
+        break;
+        case MARINES:
+            if(promotionRoll >= 9 && _rank == 1) {
+            std::cout << "You are now a Captain!\n";
+            _rank = 2;
+            reEnlist();
+            } else if(promotionRoll >= 9 && _rank == 2) {
+            std::cout << "You are now a Force Commander!\n";
+            _rank = 3;
+            reEnlist();
+            } else if(promotionRoll >= 9 && _rank == 3) {
+            std::cout << "You are now a Lieutenant Colonel!\n";
+            _rank = 4;
+            reEnlist();
+            } else if(promotionRoll >= 9 && _rank == 4) {
+            std::cout << "You are now a Colonel!\n";
+            _rank = 5;
+            reEnlist();
+            } else if(promotionRoll >= 9 && _rank == 5) {
+            std::cout << "You are now a Brigadier!\n";
+            _rank = 6;
+            }
+        break;
+        case ARMY:
+            if(promotionRoll >= 6 && _rank == 1) {
+            std::cout << "You are now a Captain!\n";
+            _rank = 2;
+            reEnlist();
+            } else if(promotionRoll >= 6 && _rank == 2) {
+            std::cout << "You are now a Major!\n";
+            _rank = 3;
+            reEnlist();
+            } else if(promotionRoll >= 6 && _rank == 3) {
+            std::cout << "You are now a Lieutenant Colonel!\n";
+            _rank = 4;
+            reEnlist();
+            } else if(promotionRoll >= 6 && _rank == 4) {
+            std::cout << "You are now a Colonel!\n";
+            _rank = 5;
+            reEnlist();
+            } else if(promotionRoll >= 6 && _rank == 5) {
+            std::cout << "You are now a General!\n";
+            _rank = 6;
+            }
+        break;
+        case MERCHANTS:
+            if(promotionRoll >= 10 && _rank == 1) {
+            std::cout << "You are now a 3rd Officer!\n";
+            _rank = 2;
+            reEnlist();
+            } else if(promotionRoll >= 10 && _rank == 2) {
+            std::cout << "You are now a 2nd Officer!\n";
+            _rank = 3;
+            reEnlist();
+            } else if(promotionRoll >= 10 && _rank == 3) {
+            std::cout << "You are now a 1st Officer!\n";
+            _rank = 4;
+            reEnlist();
+            } else if(promotionRoll >= 10 && _rank == 4) {
+            std::cout << "You are now a Captain!\n";
+            _rank = 5;
+            }
+        break;
+    }
 }
 
 void Character::reEnlist() {
