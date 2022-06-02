@@ -3,7 +3,7 @@
 
     This program creates a character according to some slightly modified Classic Traveller(tm) rules, namely:
     * Dice Modifiers (DMs) are not possible; only straight rolls are used
-    * Death during character creation is turned OFF by default
+    * Death during character creation not possible; the optional rule that uses character injury is used instead.
 */
 
 
