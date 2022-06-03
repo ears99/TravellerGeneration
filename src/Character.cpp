@@ -4,6 +4,7 @@ std::default_random_engine e(time(0));
 std::uniform_int_distribution<int> oneD6(1,6);
 std::uniform_int_distribution<int> twoD6(2,12);
 
+
 Character::Character() {}
 
 Character::~Character() {}
